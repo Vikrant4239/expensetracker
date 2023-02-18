@@ -14,7 +14,13 @@
             amount:amount1,description:description1,category:category1
         }
         let stringformofObj = JSON.stringify(myexpenseobj);
-        localStorage.setItem(category1,stringformofObj);
+        //localStorage.setItem(category1,stringformofObj);
+        //Replacing with crudcrud storage
+        axios.post("https://crudcrud.com/api/a0608b2d82594419b76fdce4de84f761/appointmentData",myexpenseobj)
+        .then((response)=>{
+            console.log(response);
+        })
+        .catch((err)=>{console.log(err)});
         //delete button
         let deletebtn =document.createElement('button');
         deletebtn.className='btn btn-length btn-sm float-right delete';
@@ -48,7 +54,8 @@
         document.getElementById('amount2').value=myexpenseobj.amount;
         document.getElementById('description2').value=myexpenseobj.description;
         document.getElementById('category2').value=myexpenseobj.category;
-        
+
+       
         
        });
 
